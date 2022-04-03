@@ -1,0 +1,37 @@
+<div class="container-fluid bg-light">
+    <div class="container bg-light">
+
+        <div class="row mt-4" style="height: 500px;">
+            <div class="col"></div>
+            <div class="col-md-12 bg-white shadow">
+
+                <div class="card mt-4">
+                    <h4 class="text-success p-3 pt-2 pb-2">ToDo App</h4>
+                </div>
+
+                <div class="shadow">
+                    <div class="input-group p-4">
+                        <input type="text" class="form-control" name="task" [(ngModel)]="addTodoValue">
+                        <button class="btn btn-outline-success" type="button" (click)="saveTodoFromAPI()">+</button>
+                    </div>
+                </div>
+                <div style="overflow-y: auto; height: 350px;">
+                    <div class="m-3" *ngFor="let item of todoArray">
+                        <div class="p-2 shadow border" id="tasks">
+                            <div class="input-group row ps-3">
+                                <input class="form-check-input col-md-1" type="checkbox">
+                                <div class="card col-md-5 border-0"> {{item.content}} </div>
+                                <div class="card col-md-5 border-0"> {{item.date | date : "dd.MM.y"}} </div>
+                                <div class="btn btn-outline-danger col" (click)="deleteTodoFromAPI(item)">X</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col"></div>
+
+        </div>
+
+    </div>
+</div>
